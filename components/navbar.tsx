@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Menu } from "lucide-react"
 
 import logo from "@/app/images/logo.png"
-import { Button } from "@/components/ui/button"
+import { NavbarAuth } from "@/components/navbar-auth"
 
 const links = [
   { label: "Browse Jobs", href: "/jobs" },
@@ -31,17 +31,6 @@ function NavigationLinks({ mobile = false }: { mobile?: boolean }) {
   )
 }
 
-function GetStartedButton() {
-  return (
-    <Button
-      render={<Link href="/sign-up" />}
-      className="h-10 rounded-xl bg-[#5b4bff] px-5 text-sm text-white shadow-[0_0_18px_rgba(91,75,255,0.2)] hover:bg-[#6c5dff]"
-    >
-      Get Started
-    </Button>
-  )
-}
-
 export function Navbar() {
   return (
     <header className="mx-auto w-full max-w-[1440px]">
@@ -62,13 +51,7 @@ export function Navbar() {
         <div className="hidden items-center gap-8 md:flex">
           <NavigationLinks />
           <span aria-hidden="true" className="h-5 w-px bg-white/15" />
-          <Link
-            href="/sign-in"
-            className="text-sm font-medium text-[#7468ff] transition-colors hover:text-[#948bff]"
-          >
-            Sign In
-          </Link>
-          <GetStartedButton />
+          <NavbarAuth />
         </div>
 
         <details className="group relative md:hidden">
@@ -81,13 +64,7 @@ export function Navbar() {
           <div className="absolute right-0 top-12 z-10 flex min-w-52 flex-col gap-1 rounded-xl border border-white/10 bg-[#242424] p-2 shadow-xl">
             <NavigationLinks mobile />
             <span aria-hidden="true" className="my-1 h-px bg-white/10" />
-            <Link
-              href="/sign-in"
-              className="rounded-md px-3 py-2 text-sm font-medium text-[#948bff] transition-colors hover:bg-white/5"
-            >
-              Sign In
-            </Link>
-            <GetStartedButton />
+            <NavbarAuth mobile />
           </div>
         </details> 
       </nav>
